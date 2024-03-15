@@ -21,6 +21,13 @@ class ExtraccionCSV:
                 self.dfs.append(df)
     
     def get_dataframe(self):
-        self.procesar_archivos_csv()
+        self.formateo_archivos_csv()
         combine_df = pd.concat(self.dfs, ignore_index=True)
         return combine_df
+    
+
+extraccion = ExtraccionCSV()
+
+combine_df = extraccion.get_dataframe()
+
+print(combine_df.head())
