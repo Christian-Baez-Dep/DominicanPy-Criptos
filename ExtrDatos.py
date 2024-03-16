@@ -26,8 +26,4 @@ class ExtraccionCSV:
         return combine_df
     
 
-extraccion = ExtraccionCSV()
 
-combine_df = extraccion.get_dataframe()
-
-print(combine_df.head())
