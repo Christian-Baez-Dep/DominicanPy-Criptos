@@ -9,12 +9,13 @@ class DatosCSV:
         self.dfs = []
         
         
-    def extra_archivos_csv(self):
+    def extraer_archivos_csv(self):
         for file in os.listdir(self.csv_directory):
             if file.endswith('.csv'):
                 df = pd.read_csv(os.path.join(self.csv_directory, file))
                 self.dfs.append(df)
-        return self.dfs
+        combine_df = pd.concat(self.dfs, ignore_index=True)
+        return combine_df
         
     def formateo_datos(self, dfs):
         formatear_data = []
@@ -27,7 +28,15 @@ class DatosCSV:
             })
         return formatear_data
 
-    def get_dataframe(self):
-        self.extra_archivos_csv()
-        combine_df = pd.concat(self.dfs, ignore_index=True)
-        return combine_df
+
+datos_csv = DatosCSV()
+
+
+datos_combinados = datos_csv.extraer_archivos_csv()
+
+datos_formateados = datos_csv.formateo_datos(datos_csv.dfs)
+
+
+for dato in datos_formateados:
+    print(dato)
+
