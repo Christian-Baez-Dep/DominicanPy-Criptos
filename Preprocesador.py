@@ -16,3 +16,8 @@ class PrepocedarorDatos:
         df['market_cap'] = df['market_cap'].fillna(df['new_market_cap'])
 
         df.drop(['market_cap_shift', 'price_shift', 'new_market_cap'], axis=1, inplace=True)
+    
+    def CambioDeTipo(df):
+        df['date'] = df['date'].astype('datetime64[ns]')
+        df['coin_name'] = df['coin_name'].astype('category')
+
