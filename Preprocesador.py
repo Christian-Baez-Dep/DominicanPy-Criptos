@@ -20,4 +20,7 @@ class PrepocedarorDatos:
     def CambioDeTipo(df):
         df['date'] = df['date'].astype('datetime64[ns]')
         df['coin_name'] = df['coin_name'].astype('category')
+        
+        
+
 
