@@ -28,15 +28,3 @@ class DatosCSV:
             })
         return formatear_data
 
-
-datos_csv = DatosCSV()
-
-
-datos_combinados = datos_csv.extraer_archivos_csv()
-
-datos_formateados = datos_csv.formateo_datos(datos_csv.dfs)
-
-
-for dato in datos_formateados:
-    print(dato)
-
