@@ -1,4 +1,4 @@
-class Exc_By_Date:
+class Filtrator:
     def __init__(self) -> None:
         pass
     
