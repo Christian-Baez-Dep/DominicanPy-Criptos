@@ -2,7 +2,14 @@ class Exc_By_Date:
     def __init__(self) -> None:
         pass
     
-    def Get_Datos_Del_2015(df):
+    def Get_Datos_2015(df):
+        newDf = df[(df['date'] >= '2015-01-01') & (df['date'] <= '2015-12-31')]
+        return newDf
+    def Get_Media(df):
+        dictio = {'price': df.groupby('coin_name')['price'].mean().dropna(), 'mark_cap': df.groupby('coin_name')['market_cap'].mean().dropna(), 'total_volume' : df.groupby('coin_name')['total_volume'].mean().dropna()}
+        return dictio
+    
+    def Get_Datos_Del_1_de_2025(df):
         newDf = df[df['date'] == '2015-01-01']
         newDf.sort_values(by = 'market_cap', ascending = False, inplace = True)
         return newDf
