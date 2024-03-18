@@ -20,3 +20,9 @@ class Exc_By_Date:
         std_min = std_series[min_coin_name]
 
         return {"coin_name": min_coin_name, "std_min": std_min}
+    
+    def Get_Coins_Above_Mean(df):
+        serie_mean = df.groupby('coin_name')['price'].mean()
+        mean = serie_mean.mean()
+        serie_coins_above = serie_mean[serie_mean > mean]
+        return serie_coins_above
