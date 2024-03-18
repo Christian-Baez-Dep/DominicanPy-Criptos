@@ -1,9 +1,9 @@
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-import ExtraccionCSV
+from ExtrDatos import DatosCSV
 class Analizer:
-    extractor = ExtraccionCSV()
+    extractor = DatosCSV()
     df_analisis=[]
     df_volumen_marketcap=[]
     def analize_volume_n_marketcap(self,lista):
