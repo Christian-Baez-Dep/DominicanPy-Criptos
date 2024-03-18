@@ -13,3 +13,10 @@ class Exc_By_Date:
         newDf = df[df['date'] == '2015-01-01']
         newDf.sort_values(by = 'market_cap', ascending = False, inplace = True)
         return newDf
+    
+    def Get_Std_Min(df):
+        std_series = df.groupby('coin_name')['market_cap'].std()
+        min_coin_name = std_series.sort_values().index[0]
+        std_min = std_series[min_coin_name]
+
+        return {"coin_name": min_coin_name, "std_min": std_min}
