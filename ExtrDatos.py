@@ -1,29 +1,30 @@
-import pandas as pd
 import os
+import pandas as pd
 
-class ExtraccionCSV:
+class DatosCSV:
     
     def __init__(self):
         self.current_dir = os.getcwd()
         self.csv_directory = os.path.join(self.current_dir, 'archive')
-        self.dfs = []
         
         
-    def formateo_archivos_csv(self):
+    def extraer_archivos_csv(self):
+        dfs = []
         for file in os.listdir(self.csv_directory):
             if file.endswith('.csv'):
                 df = pd.read_csv(os.path.join(self.csv_directory, file))
-                print(f"Contenido e información de {file}:")
-                print(df.head().to_string())
-                print(df.info())
-                print(df.describe())
-                print("========================================================")
-                self.dfs.append(df)
-    
-    def get_dataframe(self):
-        self.formateo_archivos_csv()
-        combine_df = pd.concat(self.dfs, ignore_index=True)
+                dfs.append(df)
+        combine_df = pd.concat(dfs, ignore_index=True)
         return combine_df
-    
-
+        
+    def formateo_datos(self, dfs):
+        formatear_data = []
+        for df in dfs:
+            formatear_data.append({
+                'nombre_archivo': df,
+                'contenido': df.head().to_string(),
+                'informacion': df.info(),
+                'descripcion': df.describe()
+            })
+        return formatear_data
 
