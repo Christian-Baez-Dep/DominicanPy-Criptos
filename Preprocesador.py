@@ -1,9 +1,10 @@
-
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 class PrepocedarorDatos:
     def __init__(self) -> None:
         pass
     
-    def NormalizarFecha(df):
+    def NormalizarFecha(df):    
         df['date'] = df['date'].str.slice(stop=10)
 
     def RellenarNulos(df):

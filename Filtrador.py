@@ -1,3 +1,5 @@
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 class Filtrator:
     def __init__(self) -> None:
         pass
