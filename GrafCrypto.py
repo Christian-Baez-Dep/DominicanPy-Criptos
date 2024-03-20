@@ -37,4 +37,3 @@ class GraficadorCrypto:
             
         plt.tight_layout()
         plt.show()
-
