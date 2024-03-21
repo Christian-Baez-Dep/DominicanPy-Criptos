@@ -17,11 +17,14 @@ class AlmacenarResultados:
         self.mejor_estabilidad.append({"nombre": df["nombre"].iloc[0], "desviacion_estandar": desviacion_estandar})
 
         mejora_significativa = False
+        descripcion = ""
         if cambio > 100 or (df["market_cap"].iloc[-1] - df["market_cap"].iloc[0]) > 100000000:
             mejora_significativa = True
-            descripcion = "Aumento del precio del " + str(round(cambio, 2)) + "%."
             if cambio > 100:
-                descripcion = "Aumento de la capitalización de mercado en $" + str(round((df["market_cap"].iloc[-1] - df["market_cap"].iloc[0]) / 1000000, 2)) + " millones."
+                descripcion += "Aumento del precio del " + str(round(cambio, 2)) + "%."
+            if (df["market_cap"].iloc[-1] - df["market_cap"].iloc[0]) > 100000000:
+                if descripcion != "": descripcion += " Y "
+                descripcion += "Aumento de la capitalización de mercado en $" + str(round((df["market_cap"].iloc[-1] - df["market_cap"].iloc[0]) / 1000000, 2)) + " millones."
 
         if mejora_significativa:
             self.mejoras_significativas.append({"nombre": df["nombre"].iloc[0], "mejora": descripcion})
@@ -32,10 +35,10 @@ class AlmacenarResultados:
         return self.mejor_auge, self.mejor_estabilidad, self.mejoras_significativas
 
     def calcular_cambio(self, precio_inicial, precio_final):
-        pass
+        return ((precio_final - precio_inicial) / precio_inicial) * 100
 
     def calcular_desviacion_estandar(self, precios):
-        pass
+        return precios.std()
 
 class ExtraccionCSV:
     def __init__(self, csv_directory):
@@ -53,4 +56,3 @@ class ExtraccionCSV:
     def get_dataframe(self):
         combined_df = self.formateo_archivos_csv()
         return combined_df
-
