@@ -1,4 +1,7 @@
 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas
 class PrepocedarorDatos:
     def __init__(self) -> None:
         pass

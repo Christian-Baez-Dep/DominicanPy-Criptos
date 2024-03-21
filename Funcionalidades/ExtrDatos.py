@@ -1,6 +1,8 @@
 import os
 import pandas as pd
-
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas
 class DatosCSV:
     
     def __init__(self):

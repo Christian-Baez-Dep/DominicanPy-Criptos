@@ -1,7 +1,10 @@
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-from ExtrDatos import DatosCSV
+from Funcionalidades.ExtrDatos import DatosCSV
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas
 class Analizer:
     def __init__(self):
         self.extractor = DatosCSV()

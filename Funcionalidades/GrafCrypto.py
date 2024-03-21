@@ -1,11 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
-from ExtrDatos import DatosCSV as dc
-from Filtrador import Filtrator as flc
-from Preprocesador import PrepocedarorDatos as ppd
-
-
+from Funcionalidades.ExtrDatos import DatosCSV as dc
+from Funcionalidades.Filtrador import Filtrator as flc
+from Funcionalidades.Preprocesador import PrepocedarorDatos as ppd
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas
 class GraficadorCrypto:
     
     def init(self) -> None:
@@ -17,7 +21,6 @@ class GraficadorCrypto:
         fig, axs = plt.subplots(len(criptomonedas), figsize=(10, 8), sharex=True)
 
         index = 0
-        ppd.NormalizarFecha(df)
         ppd.RellenarNulos(df)
         ppd.CambioDeTipo(df)
         df_2015 = flc.Get_Datos_2015(df)
@@ -27,7 +30,6 @@ class GraficadorCrypto:
         
         
             df_moneda = df_2015[df_2015['coin_name']== moneda]
-            print(df_moneda.to_string())
             
             axs[index].plot(df_moneda['date'], df_moneda['price'])
             axs[index].set_title(moneda)  
