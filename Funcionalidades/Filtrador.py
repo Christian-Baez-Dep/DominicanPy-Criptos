@@ -6,6 +6,7 @@ class Filtrator:
         pass
     
     def Get_Datos_2015(df):
+        df['coin_name'] = df['coin_name'].astype('object')
         newDf = df[(df['date'] >= '2015-01-01') & (df['date'] <= '2015-12-31')]
         return newDf
     def Get_Media(df):
