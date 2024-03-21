@@ -54,13 +54,3 @@ class ExtraccionCSV:
         combined_df = self.formateo_archivos_csv()
         return combined_df
 
-# Uso de las clases
-almacen = AlmacenarResultados()
-extraccion = ExtraccionCSV('archive')  # Directorio donde se encuentran los archivos CSV
-
-dataframe = extraccion.get_dataframe()
-resultados = almacen.procesar_dataframe(dataframe)
-print("Mejor Auge:", resultados[0])
-print("Mejor Estabilidad:", resultados[1])
-print("Mejoras Significativas:", resultados[2])
-
