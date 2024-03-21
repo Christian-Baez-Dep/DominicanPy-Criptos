@@ -2,8 +2,11 @@ import sys
 from Funcionalidades.ExtrDatos import DatosCSV 
 from Funcionalidades.Filtrador import Filtrator as fl
 from Funcionalidades.Preprocesador import PrepocedarorDatos as ppd
-from Menu_Medias import Menu_Mean_2015
 from Menu_Monedas_Importantes import Monedas_Interesantes_2015
+from Menu_Medias import Menu_Mean
+from Funcionalidades.MarketCrypto import Market
+from Menu_Monedas_UltimoTrimestre import Monedas_Ultimotrismetre
+from Menu_Medias_2015 import Menu_Mean_2015
 class MenuPrici:
     def __init__(self) -> None:
         pass
@@ -18,13 +21,12 @@ class MenuPrici:
 
             print("|" + "Que desea hacer?" + " "*86  + "|")
             print("|" + " " * (78 + len(bienvenida)) + "|")
-            print("|" + "1- Ver la media de las criptomonedas en 2015" + " "*66  + "|")
+            print("|" + "1- Ver la media de las criptomonedas en 2015" + " "*58  + "|")
             print("|" + "2- Ver las mas importantes de 2015" + " "*68  + "|")
-            print("|" + "3- Ver las monedas que estan por encima de la media" + " "*51  + "|")
-            print("|" + "4- Ver las medias de las diferentes criptomonedas" + " "*53  + "|")
-            print("|" + "5- Ver las criptomonedas que tuvieron mayor valor en el ultimo trimestre de 2015" + " "*22  + "|")
-            print("|" + "6- Ver la moneda mas estable de 2015" + " "*66  + "|")
-            print("|" + "7- Ver la moneda mas inestable de 2015" + " "*64  + "|")
+            print("|" + "3- Ver las medias de las diferentes criptomonedas" + " "*53  + "|")
+            print("|" + "4- Ver las criptomonedas que tuvieron mayor valor en el ultimo trimestre de 2015" + " "*22  + "|")
+            print("|" + "5- Ver la moneda mas estable de 2015" + " "*66  + "|")
+            print("|" + "6- Ver la moneda mas inestable de 2015" + " "*64  + "|")
             print("|" + " " * (78 + len(bienvenida)) + "|")
             print("|" + " " * (78 + len(bienvenida)) + "|")
             print( "*"* (80 + len(bienvenida)) )
@@ -59,10 +61,11 @@ class MenuPrici:
                 salida = True
 
             elif opc == "3":
-                print(3)
+                Menu_Mean.MostrarMenu(datos)
                 salida = True
             elif opc == "4":
-                print(4)
+                newDf = Market.datos_interesantes()
+                Monedas_Ultimotrismetre.MostrarMenu(newDf)
                 salida = True
 
             elif opc == "5":
@@ -70,10 +73,6 @@ class MenuPrici:
                 salida = True
             elif opc == "6":
                 print(6)
-                salida = True
-
-            elif opc == "7":
-                print(7)
                 salida = True
 
             else:

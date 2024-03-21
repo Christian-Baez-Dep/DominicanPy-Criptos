@@ -7,9 +7,7 @@ from Funcionalidades.Preprocesador import PrepocedarorDatos as ppd
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import pandas
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
-import pandas
+
 class GraficadorCrypto:
     
     def init(self) -> None:

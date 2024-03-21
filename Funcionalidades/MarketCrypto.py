@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from Funcionalidades.Preprocesador import PrepocedarorDatos as ppd
-from ExtrDatos import DatosCSV 
+from Funcionalidades.ExtrDatos import DatosCSV 
 
 class Market:
     
