@@ -1,5 +1,5 @@
-import os
 import pandas as pd
+import os
 
 class AlmacenarResultados:
     def __init__(self):
@@ -41,18 +41,34 @@ class AlmacenarResultados:
         return precios.std()
 
 class ExtraccionCSV:
-    def __init__(self, csv_directory):
-        self.csv_directory = csv_directory
+    def __init__(self, csv_file):
+        self.csv_file = csv_file
 
-    def formateo_archivos_csv(self):
-        dfs = []
-        for file in os.listdir(self.csv_directory):
-            if file.endswith('.csv'):
-                df = pd.read_csv(os.path.join(self.csv_directory, file))
-                df['nombre'] = os.path.splitext(file)[0]
-                dfs.append(df)
-        return pd.concat(dfs, ignore_index=True)
+    def obtener_dataframe(self):
+        try:
+            if os.path.exists(self.csv_file):
+                df = pd.read_csv(self.csv_file)
+                df['nombre'] = os.path.splitext(os.path.basename(self.csv_file))[0]
+                return df
+            else:
+                print("Archivo CSV no encontrado:", self.csv_file)
+                return None
+        except Exception as e:
+            print("Error al leer el archivo CSV:", e)
+            return None
 
-    def get_dataframe(self):
-        combined_df = self.formateo_archivos_csv()
-        return combined_df
+# Ruta del archivo CSV que contiene los datos de las criptomonedas
+csv_file_path = "/path/to/crypto_data.csv"
+
+if __name__ == "__main__":
+    extractor = ExtraccionCSV(csv_file_path)
+    data = extractor.obtener_dataframe()
+
+    if data is not None:
+        almacen = AlmacenarResultados()
+        mejor_auge, mejor_estabilidad, mejoras_significativas = almacen.procesar_dataframe(data)
+
+        print("Mejor Auge:", mejor_auge)
+        print("Mejor Estabilidad:", mejor_estabilidad)
+        print("Mejoras Significativas:", mejoras_significativas)
+
