@@ -7,6 +7,8 @@ from Menu_Medias import Menu_Mean
 from Funcionalidades.MarketCrypto import Market
 from Menu_Monedas_UltimoTrimestre import Monedas_Ultimotrismetre
 from Menu_Medias_2015 import Menu_Mean_2015
+from Menu_Grafica_Precio import Grafica_Precios
+from Menu_Grafica_Capi import Grafica_Capitalizacion
 class MenuPrici:
     def __init__(self) -> None:
         pass
@@ -27,6 +29,11 @@ class MenuPrici:
             print("|" + "4- Ver las criptomonedas que tuvieron mayor valor en el ultimo trimestre de 2015" + " "*22  + "|")
             print("|" + "5- Ver la moneda mas estable de 2015" + " "*66  + "|")
             print("|" + "6- Ver la moneda mas inestable de 2015" + " "*64  + "|")
+            print("|" + "7- Grafica de las monedas 2015 (precios)" + " "*64  + "|")
+            print("|" + "8- Grafica de las monedas 2015 (capitalizacion)" + " "*64  + "|")
+            print("|" + "9- Grafica de las monedas (precios)" + " "*64  + "|")
+            print("|" + "10- Grafica de las monedas (capitalizacion)" + " "*64  + "|")
+
             print("|" + " " * (78 + len(bienvenida)) + "|")
             print("|" + " " * (78 + len(bienvenida)) + "|")
             print( "*"* (80 + len(bienvenida)) )
@@ -73,6 +80,18 @@ class MenuPrici:
                 salida = True
             elif opc == "6":
                 print(6)
+                salida = True
+            elif opc == "7":
+                Grafica_Precios.MostrarGrafica(datos_2015)
+                salida = True
+            elif opc == "8":
+                Grafica_Capitalizacion.MostrarGrafica(datos_2015)
+                salida = True
+            elif opc == "9":
+                Grafica_Precios.MostrarGrafica(datos)
+                salida = True
+            elif opc == "10":
+                Grafica_Capitalizacion.MostrarGrafica(datos)
                 salida = True
 
             else:
