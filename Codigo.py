@@ -19,7 +19,7 @@ class AlmacenarResultados:
                 descripcion += "Aumento de la capitalización de mercado en $" + str(round((df["market_cap"].iloc[-1] - df["market_cap"].iloc[0]) / 1000000, 2)) + " millones."
 
         if mejora_significativa:
-            self.mejoras_significativas.append({"nombre": df["nombre"].iloc[0], "mejora": descripcion})
+            self.mejoras_significativas.append({"nombre": df["coin_name"].iloc[0], "mejora": descripcion})
 
     def ordenar_resultados(self):
         self.mejor_auge.sort(key=lambda x: x["cambio"], reverse=True)
