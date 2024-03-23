@@ -40,9 +40,9 @@ class MenuPrici:
             print("|" + "10- Grafica de las monedas (capitalizacion)" + " "*59  + "|")
             print("|" + "11- Grafica de las fluctuaciones de las monedas 2015 (porcentual)" + " "*37  + "|")
             print("|" + "12- Grafica de las fluctuaciones de las monedas 2015 (regular)" + " "*40  + "|")
-            print("|" + "13- Grafica de correlacion de las monedas 2015 (calor)" + " "*41  + "|")
-            print("|" + "14- Grafica de correlacion de las moneda (dispersion)" + " "*34  + "|")
-            print("|" + "15- Grafica de correlacion de las moneda (calor)" + " "*34  + "|")
+            print("|" + "13- Grafica de correlacion de las monedas 2015 (calor)" + " "*48  + "|")
+            print("|" + "14- Grafica de correlacion de las moneda (dispersion)" + " "*49  + "|")
+            print("|" + "15- Grafica de correlacion de las moneda (calor)" + " "*54  + "|")
 
             print("|" + " " * (78 + len(bienvenida)) + "|")
             print("|" + " " * (78 + len(bienvenida)) + "|")
